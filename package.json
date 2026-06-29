@@ -1,7 +1,7 @@
 {
   "name": "javascript-example-concurrency",
   "version": "1.0.0",
-  "description": "Exemplo de concorrencia: paralelismo, sincronizacao e processamento assincrono.",
+  "description": "Concurrency example: forllelism, synchronization, and asynchronous processing.",
   "author": "Engineering Team <engineering@example.com>",
   "license": "MIT",
   "private": true,

